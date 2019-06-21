@@ -1,2 +1,2 @@
-this is a repository where I test different technologies for learning
-and interviewing purposes.
+this is a repository that I used as a playground where I test different technologies for learning
+and practicing purposes.
