@@ -1,3 +1,13 @@
-let juan = ["vaca", "pollito", "caballo", "perro"];
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
 
-console.log("some text", juan, "asdfsfasdfsafsadfsad");
+let canary = new Bird("Tweety");
+let ownProps = [];
+for (let property in canary) {
+  if (canary.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+console.log(ownProps);
