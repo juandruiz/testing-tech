@@ -4,18 +4,8 @@ class WeatherForm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
 
-    this.requestWeather = this.requestWeather.bind(this);
-  }
-  requestWeather() {
-    fetch("api.openweathermap.org/data/2.5/forecast?zip=94040,us")
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
-      });
-  }
   render() {
     return (
       <form>
@@ -24,17 +14,24 @@ class WeatherForm extends Component {
           <input
             type="text"
             className="form-control"
-            id="zipcode"
+            value={this.props.zipcode}
+            onChange={this.props.handleZipCodeChange}
             placeholder="Enter zip code"
           />
         </div>
+
         <button
           type="button"
           className="btn btn-primary"
-          onClick={this.requestWeather}
+          onClick={this.props.requestWeather}
         >
           Submit
         </button>
+        <br />
+        <br />
+        <div style={{ color: "red", marginLeft: "6px" }}>
+          {this.props.warning}
+        </div>
       </form>
     );
   }
